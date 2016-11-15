@@ -1,16 +1,25 @@
+def pick_number
+  puts "Pick your random number: "
+  gets.chomp.to_i
+end
+
+def winning_message
+  puts "✨✨✨ Wow, you rock!! 🍻🍻🍻"
+end
+
 i=1
 num = 5
 random = rand(1..100)
 
 until i > num do
-  puts "Pick your random number"
-  number = gets.chomp
-  number = number.to_i
+  number = pick_number
 
-  #puts "CHEAT MODE: #{random}"  <-- Good practice to check the code
-
+  #puts "Pick your random number"
+  #number = gets.chomp
+  #number = number.to_i
+  puts "CHEAT MODE: #{random}"  #<-- Good practice to check the code
   if number == random
-    puts "Wow! You got it!"
+    winning_message
     break
   end
 
@@ -20,11 +29,11 @@ until i > num do
   when number > random
     puts "You are too high"
   else
-  puts "Try again!"
+    puts "Try again!"
   end
-  i +=1;
+  i += 1
 end
 
-if i==5
-puts "You lose!"
+if i >= num # if i == num, it won't put out puts because the condition is to loop until i>num
+  puts "😵😵 You lose 😵😵!"
 end
